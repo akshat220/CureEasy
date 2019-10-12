@@ -1,2 +1,3 @@
 # CureEasy
-All your medical need in one application.
+
+![GitHub Logo](https://github.com/akshat220/CureEasy/blob/master/app/src/main/res/drawable/ce.png)
