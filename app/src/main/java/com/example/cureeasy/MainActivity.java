@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void setImageForPosition(int position, ImageView imageView) {
             imageView.setImageResource(imageSamples[position]);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
         }
     };
 
