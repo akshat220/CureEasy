@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".DoctorHome"></activity>
+        <activity android:name=".AuthActivity" />
         <activity
             android:name=".SplashScreen"
             android:theme="@style/SplashScreen">
@@ -19,8 +21,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:theme="@style/AppTheme"></activity>
+            android:name=".PatientHome"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
