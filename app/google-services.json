@@ -15,7 +15,23 @@
       },
       "oauth_client": [
         {
-          "client_id": "436662286519-kpvse6d88i0ugnestb26plnr721lfcbd.apps.googleusercontent.com",
+          "client_id": "436662286519-imabak231riialtkup77k9mov3bgsl6o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cureeasy",
+            "certificate_hash": "b7497f07a89171896b9c734cbb915eaa861ef36e"
+          }
+        },
+        {
+          "client_id": "436662286519-m1o37a9unrrdk674ha1533asjedrsoak.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cureeasy",
+            "certificate_hash": "1958c7115bcbb2b0e98f5407c1f7e318c1aad06c"
+          }
+        },
+        {
+          "client_id": "436662286519-d9ot95dviosq9j3fhpab3oi19c4nble8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.cureeasy",

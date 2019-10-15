@@ -1,32 +1,57 @@
 package com.example.cureeasy;
 
+import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.widget.ImageView;
+import android.util.Log;
 
-import com.synnapps.carouselview.CarouselView;
-import com.synnapps.carouselview.ImageListener;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.smarteist.autoimageslider.IndicatorAnimations;
+import com.smarteist.autoimageslider.SliderAnimations;
+import com.smarteist.autoimageslider.SliderView;
+
+import java.util.ArrayList;
 
 public class PatientHome extends AppCompatActivity {
 
-    CarouselView carouselView;
-    int[] imageSamples = {R.drawable.tip1, R.drawable.tip2, R.drawable.tip3};
-    ImageListener imageListener = new ImageListener() {
-        @Override
-        public void setImageForPosition(int position, ImageView imageView) {
-            imageView.setImageResource(imageSamples[position]);
-            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-        }
-    };
-
+ArrayList<String> slide;
+SliderView sliderView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_patient);
+        slide=new ArrayList<>();
+        sliderView=findViewById(R.id.imageSlider);
+        showSlider();
 
-        carouselView = (CarouselView) findViewById(R.id.carouselView);
-        carouselView.setPageCount(imageSamples.length);
-        carouselView.setImageListener(imageListener);
+
+
+
+
     }
+    public void showSlider()
+    {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference docRef = db.collection("slider").document("qBYDtXqixRwl94oIbMez");
+        docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            @Override
+            public void onSuccess(DocumentSnapshot documentSnapshot) {
+                Log.e("hii",documentSnapshot.getData().get("images").toString());
+                slide=(ArrayList<String>) documentSnapshot.getData().get("images");
 
+                sliderView.setIndicatorAnimation(IndicatorAnimations.WORM); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+                sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
+                sliderView.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
+                sliderView.setIndicatorSelectedColor(Color.WHITE);
+                sliderView.setIndicatorUnselectedColor(Color.GRAY);
+                sliderView.setScrollTimeInSec(4); //set scroll delay in seconds :
+                sliderView.startAutoCycle();
+                sliderView.setSliderAdapter(new SliderAdapterExample(PatientHome.this,slide));
+            }
+        });
+    }
 }
