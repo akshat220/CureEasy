@@ -30,6 +30,7 @@ dependencies {
     implementation "com.firebaseui:firebase-ui-auth:4.3.2"
     implementation 'de.hdodenhof:circleimageview:3.0.1'
 
+    implementation'com.android.support:design:28.1.1'
     implementation 'com.google.firebase:firebase-auth:16.0.5'
 
     implementation 'com.google.firebase:firebase-firestore:17.1.2'

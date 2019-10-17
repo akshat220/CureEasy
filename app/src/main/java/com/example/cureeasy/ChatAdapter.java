@@ -18,6 +18,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatHolder>
     public ChatAdapter(Context c) {
         super();
         context=c;
+
     }
 
     @NonNull
@@ -30,10 +31,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatHolder>
     @Override
     public void onBindViewHolder(@NonNull ChatHolder holder, int position) {
 
-holder.profile_img.setImageResource(R.drawable.al);
-holder.name.setText("hello");
-holder.msg.setText("jjkjojkijkokj............................................................  jjhjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
-holder.date.setText("jijiojijj");
+
     }
 
     @Override
@@ -43,17 +41,14 @@ holder.date.setText("jijiojijj");
 
     public class ChatHolder extends RecyclerView.ViewHolder
 {
-    ImageView profile_img;
-    TextView date;
-    TextView name;
-    TextView msg;
+    TextView sender,reciever;
+    ImageView profile;
     public ChatHolder(@NonNull View itemView) {
         super(itemView);
+        sender=itemView.findViewById(R.id.chat_sender);
+        reciever=itemView.findViewById(R.id.chat_sender);
+        profile=itemView.findViewById(R.id.chat_profile_img);
 
-        profile_img=itemView.findViewById(R.id.chat_profile_img);
-        date=itemView.findViewById(R.id.chat_date);
-        name=itemView.findViewById(R.id.chat_name);
-        msg=itemView.findViewById(R.id.chat_msg);
     }
 }
 }

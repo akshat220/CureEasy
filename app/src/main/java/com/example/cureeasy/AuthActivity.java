@@ -111,7 +111,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(this,firebaseAuth.getUid(),Toast.LENGTH_SHORT).show();
             editor.apply();
 
-            Intent i=new Intent(this,PatientHome.class);
+            Intent i=new Intent(this,ChatActivity.class);
             this.finish();
             startActivity(i);
         }
