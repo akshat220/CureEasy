@@ -107,11 +107,11 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
             Log.e("here","I am Here");
             SharedPreferences sharedPref = this.getSharedPreferences("prev", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
-            editor.putString("userid",firebaseAuth.getUid());
+            editor.putString("userid",firebaseAuth.getCurrentUser().getEmail());
             Toast.makeText(this,firebaseAuth.getUid(),Toast.LENGTH_SHORT).show();
             editor.apply();
 
-            Intent i=new Intent(this,ChatActivity.class);
+            Intent i=new Intent(this,SelectUser.class);
             this.finish();
             startActivity(i);
         }
