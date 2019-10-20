@@ -23,22 +23,22 @@ regarding their regular check-ups and vaccination updates.
 data of all users so that they can access it whenever they want in a hassle-free and
 efficient manner without having to go through the bulky documents written in an alien
 language. We will store all our data on the blockchain. It will provide more security,
-reliability, and authenticity.
-● **Providing regular medicine/vaccination reminders**##- Patients no longer need to remember
+reliability, and authenticity.<br/>
+● **Providing regular medicine/vaccination reminders**- Patients no longer need to remember
 the complex schedules at which a particular medicine/vaccine needs to be taken, as we
 will be taking care of that responsibility. The user just need to tell us the disease and we
-will be suggesting the doses accordingly.
+will be suggesting the doses accordingly.<br/>
 ● **Easier redemption of health insurance claims**##- Insurance is an important part of one’s
 life, however, its redemption requires many hectic procedures and a long time. We will
-provide a single click health insurance claim and redemption.
+provide a single click health insurance claim and redemption.<br/>
 ● **One-click medical document verification**- Students generally have to present a medical
 certificate for any ill leaves they take and have to visit the doctor to get it done. With our
 application, they can request a certificate from the comfort of their homes with a
-verifiable authenticity.
+verifiable authenticity.<br/>
 ● **Book an appointment** with registered doctors/medical tests at diagnostic
 centers- Time is the most important asset. Seeing a doctor or visiting a diagnostic center
 generally is a time taking process. But, with this feature, we ensure that you don’t have
-to stand in long queues and wait for hours in the doctor’s clinic and diagnostic center.
+to stand in long queues and wait for hours in the doctor’s clinic and diagnostic center.<br/>
 
 **Who are our target customers and why they would use our product?**<br/>
 
