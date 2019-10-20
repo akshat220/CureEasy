@@ -78,3 +78,18 @@ nearby, etc. will make work related to healthcare easier and time-efficient.<br/
 **What is the current status of the business?**<br/>
 Currently we have a demo app that allows doctors and patients to register themselves and allows 
 doctors to go through all patients data that they are treating.<br/>
+
+# Installation Guide
+
+
+1. Install Android Studio
+2. Import this project
+3. Sync your android studio with Firebase.(Tools-> Firebase-> Assistant->Analytics->Log an analytics event-> Connect with Firebase)
+4. Turn on developer option in mobile, then turn on usb debugging.
+5. Connect your mobile to laptop using usb cable.
+6. Run the code through Android Studio.
+
+**NOTE: 
+1. If you face any problems in the above process, directly install our application in your mobile using the app_debug.apk file.**
+**2. Find the video demo of our app working in the repo.**
+
