@@ -16,6 +16,9 @@ import com.google.firebase.messaging.FirebaseMessagingService;
 import java.util.HashMap;
 import java.util.Map;
 
+import static android.content.Context.MODE_PRIVATE;
+import static com.firebase.ui.auth.AuthUI.getApplicationContext;
+
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 String uid;
     FirebaseFunctions mFunctions;
