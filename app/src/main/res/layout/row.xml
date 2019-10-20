@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         app:contentPadding="8dp"
-        app:cardBackgroundColor="#DCDCDC"
+        app:cardBackgroundColor="@color/bg"
         app:cardCornerRadius="3dp"
         app:cardElevation="3dp">
 
@@ -23,6 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:text="Patient Name"
+                android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold"/>
 
@@ -30,6 +31,7 @@
                 android:id="@+id/disease"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
                 tools:text="Disease"
                 android:layout_below="@id/patient"/>
 
@@ -37,6 +39,7 @@
                 android:id="@+id/rect"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
                 tools:text="Recommended Treatment"
                 android:layout_below="@id/disease"/>
 
@@ -44,6 +47,7 @@
                 android:id="@+id/prevt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
                 tools:text="Previous Treatment"
                 android:layout_below="@id/rect"/>
 
@@ -51,6 +55,7 @@
                 android:id="@+id/apps"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
                 tools:text="Application Status"
                 android:layout_below="@id/prevt"/>
 
@@ -58,6 +63,7 @@
                 android:id="@+id/clinic"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
                 tools:text="Clinic Name"
                 android:layout_below="@id/apps"/>
 
@@ -65,6 +71,7 @@
                 android:id="@+id/ins"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
                 tools:text="Insurance"
                 android:layout_below="@id/clinic"/>
 
@@ -72,6 +79,7 @@
                 android:id="@+id/bill"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
                 tools:text="Billing Details"
                 android:layout_below="@id/ins"/>
             <TextView
@@ -81,6 +89,7 @@
                 tools:text="Doctor"
                 android:textStyle="bold|italic"
                 android:layout_alignParentRight="true"
+                android:textColor="#FFFFFF"
                 android:textSize="15sp"
                 android:layout_below="@id/ins"/>
 

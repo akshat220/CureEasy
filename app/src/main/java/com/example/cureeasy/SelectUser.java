@@ -27,7 +27,6 @@ import com.google.firebase.iid.InstanceIdResult;
 import java.util.HashMap;
 import java.util.Map;
 
-import static android.view.View.VISIBLE;
 
 public class SelectUser extends AppCompatActivity implements View.OnClickListener,
         AdapterView.OnItemSelectedListener {
@@ -75,7 +74,6 @@ public class SelectUser extends AppCompatActivity implements View.OnClickListene
 
                     }
                 });
-
     }
 
     @Override
@@ -83,6 +81,7 @@ public class SelectUser extends AppCompatActivity implements View.OnClickListene
         if (user.isChecked()) {
             Intent i = new Intent(getApplicationContext(), PatientHome.class);
             startActivity(i);
+            finish();
         } else if (doctor.isChecked()) {
             addtodoctor();
         }
@@ -152,6 +151,7 @@ public class SelectUser extends AppCompatActivity implements View.OnClickListene
                         } else {
                             Intent i = new Intent(getApplicationContext(), DoctorHome.class);
                             startActivity(i);
+                            finish();
 
                         }
                         // ...

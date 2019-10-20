@@ -1,8 +1,10 @@
 package com.example.cureeasy;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -48,10 +50,14 @@ SliderView sliderView;
                 sliderView.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
                 sliderView.setIndicatorSelectedColor(Color.WHITE);
                 sliderView.setIndicatorUnselectedColor(Color.GRAY);
-                sliderView.setScrollTimeInSec(4); //set scroll delay in seconds :
+                sliderView.setScrollTimeInSec(3); //set scroll delay in seconds :
                 sliderView.startAutoCycle();
                 sliderView.setSliderAdapter(new SliderAdapterExample(PatientHome.this,slide));
             }
         });
+    }
+
+    public void MyRecords(View v){
+        startActivity(new Intent(PatientHome.this, MyPatients.class));
     }
 }
