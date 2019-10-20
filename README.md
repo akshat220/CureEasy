@@ -17,18 +17,18 @@ invest a huge amount of time.
 2) The doctors having patients staying at distant locations are unable to keep interaction with them
 regarding their regular check-ups and vaccination updates.
 
-#**We aim to build a complete one-stop solution for all healthcare needs.**
+#**We aim to build a complete one-stop solution for all healthcare needs.**#
 
 ##● **Data Aggregation Platform** - We aim to record and manage the health
 data of all users so that they can access it whenever they want in a hassle-free and
 efficient manner without having to go through the bulky documents written in an alien
 language. We will store all our data on the blockchain. It will provide more security,
 reliability, and authenticity.
-##● **Providing regular medicine/vaccination reminders**- Patients no longer need to remember
+##● **Providing regular medicine/vaccination reminders**##- Patients no longer need to remember
 the complex schedules at which a particular medicine/vaccine needs to be taken, as we
 will be taking care of that responsibility. The user just need to tell us the disease and we
 will be suggesting the doses accordingly.
-##● **Easier redemption of health insurance claims**- Insurance is an important part of one’s
+##● **Easier redemption of health insurance claims**##- Insurance is an important part of one’s
 life, however, its redemption requires many hectic procedures and a long time. We will
 provide a single click health insurance claim and redemption.
 ##● **One-click medical document verification**- Students generally have to present a medical
