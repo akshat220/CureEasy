@@ -81,7 +81,6 @@ doctors to go through all patients data that they are treating.<br/>
 
 # Installation Guide
 
-
 1. Install Android Studio
 2. Import this project
 3. Sync your android studio with Firebase.(Tools-> Firebase-> Assistant->Analytics->Log an analytics event-> Connect with Firebase)
@@ -93,3 +92,11 @@ doctors to go through all patients data that they are treating.<br/>
 1. If you face any problems in the above process, directly install our application in your mobile using the app_debug.apk file.**
 **2. Find the video demo of our app working in the repo.**
 
+# Application Working Explaination:
+
+1. On starting the application, an auth activity appears wherein you have to sign in with your google account.
+2. After signing in, you will get an activity where you have to enter your details.
+3. If you are a user, you can see your records and a slider with some tips.
+4. If you are a doctor, you can either view your patient's information or add a new patient.
+
+We aim to build a complete one stop solution for all medical needs of the world. We will set up vaccination, medicine reminders and store all medical records at a single place in a secured manner. We can apply data analytics and conclude results from the patients data, in order to make the app personalized. 
