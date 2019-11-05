@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +25,7 @@ import com.google.firebase.functions.HttpsCallableResult;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,9 +36,12 @@ String uuid,s1;
 RadioButton user,doctor;
 Spinner spinner;
 TextView doctype;
-    Map<String,String> result;
+
     FirebaseFunctions mFunctions;
     String dtype;
+    ArrayList<MapSample> sample;
+    Map<String,String> result;
+    Map<String,ArrayList<Map<String,String>>> result2;
     String doctors[]={"Endocrinologist","Neurologist","Psychiatrist","Ophthalmologist","Urologist"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,7 @@ TextView doctype;
         button=findViewById(R.id.button);
         button.setOnClickListener(this);
         spinner=findViewById(R.id.spinner);
+        sample=new ArrayList<>();
         spinner.setOnItemSelectedListener(this);
         user=findViewById(R.id.radio_user);
         doctor=findViewById(R.id.radio_doctor);
@@ -56,22 +62,7 @@ TextView doctype;
         spinner.setAdapter(aa);
         SharedPreferences pref = getApplicationContext().getSharedPreferences("prev", MODE_PRIVATE);
         uuid=pref.getString("userid",null);
-        FirebaseInstanceId.getInstance().getInstanceId()
-                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
-                        if (!task.isSuccessful()) {
 
-                            return;
-                        }
-
-                        // Get new Instance ID token
-                        s1 = task.getResult().getToken();
-                        callToken();
-                        // Log and toast
-
-                    }
-                });
 
     }
 
@@ -79,15 +70,13 @@ TextView doctype;
     public void onClick(View v) {
         if(user.isChecked())
         {
-Intent i=new Intent(getApplicationContext(),ChatActivity.class);
-startActivity(i);
+
         }
         else
         {
-         if(dtype!=null)
-         {
-            addtodoctor();
-        }}
+            new AsyncWork().execute();
+
+        }
 
     }
 
@@ -131,7 +120,7 @@ startActivity(i);
                         }
                         else
                         {
-
+                            addtodoctor();
                         }
                         // ...
                     }
@@ -141,9 +130,9 @@ startActivity(i);
 public void addtodoctor()
 {
     addDoctor()
-            .addOnCompleteListener(new OnCompleteListener<Map<String,String>>() {
+            .addOnCompleteListener(new OnCompleteListener<Map<String, ArrayList<Map<String,String>>>>() {
                 @Override
-                public void onComplete(@NonNull Task<Map<String,String>> task) {
+                public void onComplete(@NonNull Task<Map<String, ArrayList<Map<String,String>>>> task) {
                     if (!task.isSuccessful()) {
 
                         Exception e = task.getException();
@@ -156,8 +145,8 @@ public void addtodoctor()
                         // ...
                     }
                     else
-                    { Intent i=new Intent(getApplicationContext(),ChatActivity.class);
-                        startActivity(i);
+                    { //Log.e("hii",task.getResult().get("users").get(0).get("email"));
+
 
                     }
                     // ...
@@ -165,23 +154,23 @@ public void addtodoctor()
             });
 
 }
-    private Task<Map<String,String>> addDoctor() {
+    private Task<Map<String, ArrayList<Map<String,String>>>> addDoctor() {
         // Create the arguments to the callable function.
         Map<String, Object> data = new HashMap<>();
-        data.put("userid", uuid);
+        data.put("userid",uuid);
         data.put("type",dtype);
 
         return mFunctions
                 .getHttpsCallable("adddoctor")
                 .call(data)
-                .continueWith(new Continuation<HttpsCallableResult, Map<String,String>>() {
+                .continueWith(new Continuation<HttpsCallableResult, Map<String, ArrayList<Map<String,String>>>>() {
                     @Override
-                    public Map<String,String> then(@NonNull Task<HttpsCallableResult> task) throws Exception {
+                    public Map<String, ArrayList<Map<String,String>>> then(@NonNull Task<HttpsCallableResult> task) throws Exception {
                         // This continuation runs on either success or failure, but if the task
                         // has failed then getResult() will throw an Exception which will be
                         // propagated down.
                         result = (Map<String,String>) task.getResult().getData();
-                        return result;
+                        return result2;
                     }
                 });
     }
@@ -194,5 +183,45 @@ public void addtodoctor()
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+    class AsyncWork extends AsyncTask<Void,Void,Void>
+    {
+        public AsyncWork() {
+            super();
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+
+            super.onPostExecute(aVoid);
+            Intent i=new Intent(getApplicationContext(),BarCodeScanningActivity.class);
+            startActivity(i);
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            FirebaseInstanceId.getInstance().getInstanceId()
+                    .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                            if (!task.isSuccessful()) {
+
+                                return;
+                            }
+
+                            // Get new Instance ID token
+                            s1 = task.getResult().getToken();
+                            callToken();
+                            // Log and toast
+
+                        }
+                    });
+            return null;
+        }
     }
 }

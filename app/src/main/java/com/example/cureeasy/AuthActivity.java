@@ -85,6 +85,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
+
                             //updateUI(user);
                         } else {
                             Toast.makeText(AuthActivity.this,"Something went Wrong",Toast.LENGTH_SHORT).show();
@@ -107,7 +108,9 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
             Log.e("here","I am Here");
             SharedPreferences sharedPref = this.getSharedPreferences("prev", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
-            editor.putString("userid",firebaseAuth.getCurrentUser().getEmail());
+            editor.putString("userid",firebaseAuth.getCurrentUser().getUid());
+            editor.putString("username",firebaseAuth.getCurrentUser().getDisplayName());
+            editor.putString("email",firebaseAuth.getCurrentUser().getEmail());
             Toast.makeText(this,firebaseAuth.getUid(),Toast.LENGTH_SHORT).show();
             editor.apply();
 
