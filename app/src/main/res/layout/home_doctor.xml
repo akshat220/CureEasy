@@ -35,38 +35,10 @@
 
     </androidx.cardview.widget.CardView>
 
-    <Button
-        android:onClick="MyPatients"
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:layout_margin="32dp"
-        android:text="My Patients"
-        android:background="@color/bg"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"/>
-    <Button
-        android:id="@+id/addPatient"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:background="@color/bg"
-        android:textColor="#FFFFFF"
-        android:layout_margin="32dp"
-        android:layout_marginBottom="0dp"
-        android:text="Add Patient"
-        android:textSize="16sp"
-        android:onClick="addActivity"/>
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:layout_margin="32dp"
-        android:layout_marginBottom="0dp"
-        android:background="@color/bg"
-        android:textColor="#FFFFFF"
-        android:text="My Profile"
-        android:textSize="16sp" />
+        android:layout_height="match_parent"
+        android:id="@+id/doctor_recycler"/>
 
 
 </LinearLayout>

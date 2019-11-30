@@ -1,12 +1,19 @@
 package com.example.cureeasy;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
@@ -17,9 +24,10 @@ import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
-
+// pateinet home adpatwer
 public class PatientHome extends AppCompatActivity {
-
+RecyclerView homepatient;
+ArrayList<PatientHomeDefault> slider_adapter;
 ArrayList<String> slide;
 SliderView sliderView;
     @Override
@@ -29,7 +37,14 @@ SliderView sliderView;
         slide=new ArrayList<>();
         sliderView=findViewById(R.id.imageSlider);
         showSlider();
+homepatient=findViewById(R.id.patient_recycler);
+slider_adapter=declarepatient();
 
+
+        LinearLayoutManager manager=new LinearLayoutManager(getApplicationContext(),RecyclerView.VERTICAL,false);
+        PatientHomeAdapter homeadapter=new PatientHomeAdapter(this,slider_adapter);
+        homepatient.setLayoutManager(manager);
+        homepatient.setAdapter(homeadapter);
 
 
 
@@ -57,7 +72,29 @@ SliderView sliderView;
         });
     }
 
-    public void MyRecords(View v){
-        startActivity(new Intent(PatientHome.this, MyPatients.class));
+class PatientHomeDefault
+{
+    String title;
+    int image;
+int col;
+    public PatientHomeDefault(String t,int i,int c)
+    {
+        title=t;
+        image=i;
+        col=c;
     }
+}
+
+public ArrayList<PatientHomeDefault>declarepatient()
+{
+    ArrayList<PatientHomeDefault> def=new ArrayList<>();
+    def.add(new PatientHomeDefault("Prescription",R.drawable.prescription_icon_img,R.color.tile1));
+    def.add(new PatientHomeDefault("Chat",R.drawable.chat_img,R.color.tile3));
+    def.add(new PatientHomeDefault("QR Code",R.drawable.qrcode_img,R.color.tile2));
+    def.add(new PatientHomeDefault("My Profile",R.drawable.profile_img,R.color.tile4));
+    def.add(new PatientHomeDefault("Health Tips",R.drawable.healthyoutube,R.color.tile5));
+    def.add(new PatientHomeDefault("Insurance Claim",R.drawable.insurance,R.color.tile6));
+    return def;
+}
+
 }

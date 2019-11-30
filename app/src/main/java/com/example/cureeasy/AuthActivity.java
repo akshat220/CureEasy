@@ -24,7 +24,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 public class AuthActivity extends AppCompatActivity implements View.OnClickListener,FirebaseAuth.AuthStateListener {
-
+// Auth Activity Auth with Google
     GoogleSignInClient mGoogleSignInClient;
     private  static int RC_SIGN_IN=1;
     SignInButton googlesigninbutton;
@@ -75,7 +75,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
-
+// Authenetication With Firebase
     private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
         AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
         mAuth.signInWithCredential(credential)
@@ -85,6 +85,7 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
+
                             //updateUI(user);
                         } else {
                             Toast.makeText(AuthActivity.this,"Something went Wrong",Toast.LENGTH_SHORT).show();
@@ -104,13 +105,19 @@ public class AuthActivity extends AppCompatActivity implements View.OnClickListe
     public void onAuthStateChanged(FirebaseAuth firebaseAuth) {
         if(firebaseAuth.getCurrentUser()!=null)
         {
+
+            // Auth Succesfull now STore in Shared Preference
+
             Log.e("here","I am Here");
             SharedPreferences sharedPref = this.getSharedPreferences("prev", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
-            editor.putString("userid",firebaseAuth.getCurrentUser().getEmail());
-            Toast.makeText(this,firebaseAuth.getUid(),Toast.LENGTH_SHORT).show();
+            editor.putString("userid",firebaseAuth.getCurrentUser().getUid());
+            editor.putString("username",firebaseAuth.getCurrentUser().getDisplayName());
+            editor.putString("email",firebaseAuth.getCurrentUser().getEmail());
+            editor.putString("photourl",firebaseAuth.getCurrentUser().getPhotoUrl().toString());
+            //Toast.makeText(this,firebaseAuth.getUid(),Toast.LENGTH_SHORT).show();
             editor.apply();
-
+// After Succesfull Sign In Move to Select User Class
             Intent i=new Intent(this,SelectUser.class);
             this.finish();
             startActivity(i);

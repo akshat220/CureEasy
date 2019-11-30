@@ -5,7 +5,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
+// no use
 public class PatientHolder extends RecyclerView.ViewHolder {
 
     TextView patient, disease, rect, prevt, apps, clinic, bill, doct, ins;

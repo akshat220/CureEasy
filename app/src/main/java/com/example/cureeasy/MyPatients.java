@@ -15,7 +15,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 
 public class MyPatients extends AppCompatActivity {
-
+// no use
     final String TAG = "MyPatients";
     RecyclerView mRecyclerView;
     PatientDataAdapter mPatientDataAdapter;

@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "436662286519-1gf0c9ik69e5ug8r6jd4hpjj3prliab4.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.cureeasy",
-            "certificate_hash": "c951f83b58bb33c4021e433dee7f41d36ddbc64e"
-          }
-        },
-        {
           "client_id": "436662286519-imabak231riialtkup77k9mov3bgsl6o.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

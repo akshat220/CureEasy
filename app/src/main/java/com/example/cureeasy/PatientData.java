@@ -1,5 +1,5 @@
 package com.example.cureeasy;
-
+// no use
 public class PatientData {
     String Pname, Dname, Cname, DisName, RTname, PTname, Bname, AppStatus, Ins;
 

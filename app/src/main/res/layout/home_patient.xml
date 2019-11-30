@@ -34,17 +34,10 @@
 
     </androidx.cardview.widget.CardView>
 
-    <Button
-        android:onClick="MyRecords"
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:layout_margin="40dp"
-        android:background="@color/bg"
-        android:textColor="#FFFFFF"
-        android:text="My Records"
-        android:textSize="16sp"
-        android:layout_below="@id/imageSlider"/>
+        android:layout_height="match_parent"
+        android:id="@+id/patient_recycler"/>
 
 
 </LinearLayout>
